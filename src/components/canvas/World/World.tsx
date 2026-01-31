@@ -1,6 +1,8 @@
 import { LandingZone } from './LandingZone'
 import { SkillsIsland } from './SkillsIsland'
 import { ProjectsGallery } from './ProjectsGallery'
+import { ExperienceTimeline } from './ExperienceTimeline'
+import { ContactSummit } from './ContactSummit'
 import { Stars } from '@react-three/drei'
 import { Coin } from './Coin'
 import { Rocks } from './Rocks'
@@ -13,14 +15,18 @@ export const World = () => {
             <LandingZone />
             <SkillsIsland />
             <ProjectsGallery />
+            <ExperienceTimeline />
+            <ContactSummit />
 
-            {/* Coins Trail */}
+            {/* Coins Trail leading to new zones */}
             <Coin position={[0, 1, -5]} />
             <Coin position={[0, 1, -8]} />
             <Coin position={[0, 1, -11]} />
             <Coin position={[-5, 2, -15]} />
             <Coin position={[-10, 3, -18]} />
             <Coin position={[-15, 4, -20]} />
+            <Coin position={[-20, 5, -30]} />
+            <Coin position={[0, 15, -40]} />
             <Rocks />
         </group>
     )

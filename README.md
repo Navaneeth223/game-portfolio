@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# 🌌 Cyber-Conservatory: 3D Interactive Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A futuristic, high-performance 3D interactive portfolio built with **React Three Fiber** and **Web Audio API**. Pilot a surveyor drone through a geometric space graveyard, collecting data fragments and exploring professional milestones.
 
-Currently, two official plugins are available:
+![Hero View](https://github.com/Navaneeth223/game-portfolio/raw/main/public/preview.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Experience the Mission
 
-## React Compiler
+-   **Pilot Command**: Navigate a high-tech drone with smooth, momentum-based controls (WASD/Joystick).
+-   **Procedural Atmosphere**: Real-time generative cinematic music and SFX synthesized directly in your browser.
+-   **Project Archive**: A dedicated "Gallery Mode" for focused project exploration with smooth camera transitions.
+-   **Space Physics**: Interactive zero-gravity drifting rocks that react to your drone's collisions.
+-   **Mobile Ready**: Full touch support with a custom virtual joystick and responsive HUD.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+-   **Core**: [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+-   **3D Engine**: [Three.js](https://threejs.org/) via [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber)
+-   **Helpers**: [@react-three/drei](https://github.com/pmndrs/drei)
+-   **State**: [Zustand](https://github.com/pmndrs/zustand)
+-   **Animation**: [GSAP](https://greensock.com/gsap/) & [Native LERP](https://threejs.org/docs/#api/en/math/Vector3.lerp)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **Audio**: Web Audio API (Procedural Synthesizers)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🕹️ Controls
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Desktop
+-   **W/A/S/D**: Pilot Drone
+-   **SPACE**: Ascend / Fly Up
+-   **Project Archive**: Toggle focus mode for project billboards
+-   **Mute**: Toggle procedural BGM
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Mobile
+-   **Virtual Joystick**: Movement
+-   **FLY UP Button**: Dedicated vertical thruster
+-   **Auto-Hiding HUD**: Maximized 3D viewing space
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Local Development
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Navaneeth223/game-portfolio.git
+    cd game-portfolio
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
+
+4.  **Build for production**:
+    ```bash
+    npm run build
+    ```
+
+## 📜 License
+
+MIT License. Designed and Developed by [Navaneeth KV](https://github.com/Navaneeth223).
