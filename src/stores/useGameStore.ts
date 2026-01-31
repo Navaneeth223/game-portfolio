@@ -11,6 +11,8 @@ interface GameState {
     addCoin: () => void
     sfxTrigger: number
     triggerSfx: () => void
+    mobileJump: boolean
+    setMobileJump: (jump: boolean) => void
 }
 
 export const useGameStore = create<GameState>((set) => ({
@@ -23,5 +25,7 @@ export const useGameStore = create<GameState>((set) => ({
     score: 0,
     addCoin: () => set((state) => ({ score: state.score + 1, sfxTrigger: state.sfxTrigger + 1 })),
     sfxTrigger: 0,
-    triggerSfx: () => set((state) => ({ sfxTrigger: state.sfxTrigger + 1 }))
+    triggerSfx: () => set((state) => ({ sfxTrigger: state.sfxTrigger + 1 })),
+    mobileJump: false,
+    setMobileJump: (mobileJump) => set({ mobileJump })
 }))

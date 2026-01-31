@@ -6,7 +6,7 @@ import { useGameStore } from '../../../stores/useGameStore'
 
 export const Player = forwardRef<Group>((props, ref) => {
     const { forward, backward, left, right, jump } = useInput()
-    const { joystickInput } = useGameStore()
+    const { joystickInput, mobileJump } = useGameStore()
 
     useFrame((state, delta) => {
         const group = (ref as React.MutableRefObject<Group>).current
@@ -42,9 +42,12 @@ export const Player = forwardRef<Group>((props, ref) => {
         // Apply movement
         group.position.add(direction)
 
-        if (jump) group.position.y += speed
+        // Fly Logic: Use either keyboard jump or mobile button
+        const isJumping = jump || mobileJump
+
+        if (isJumping) group.position.y += speed
         // Simple gravity/return to zero
-        if (!jump && group.position.y > 1) group.position.y -= speed * 0.5
+        if (!isJumping && group.position.y > 1) group.position.y -= speed * 0.5
         if (group.position.y < 1) group.position.y = 1
 
         // Visual Tilt & Rotation
