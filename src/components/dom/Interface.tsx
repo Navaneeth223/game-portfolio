@@ -33,6 +33,18 @@ export const Interface = () => {
                 </div>
 
                 <div className="flex flex-col gap-2 pointer-events-auto">
+                    <button
+                        onClick={() => {
+                            const nextPhase = useGameStore.getState().currentPhase === 'focused' ? 'playing' : 'focused'
+                            useGameStore.getState().setPhase(nextPhase)
+                        }}
+                        className={`backdrop-blur-md p-2 rounded-lg border transition-colors text-center text-sm pointer-events-auto ${useGameStore((state) => state.currentPhase) === 'focused'
+                                ? "bg-cyan-500/40 border-cyan-400"
+                                : "bg-black/40 border-white/10 hover:bg-white/10"
+                            }`}
+                    >
+                        {useGameStore((state) => state.currentPhase === 'focused' ? "BACK TO DRONE" : "PROJECT ARCHIVE")}
+                    </button>
                     <a href="https://github.com/Navaneeth223" target="_blank" className="backdrop-blur-md bg-black/40 hover:bg-white/10 p-2 rounded-lg border border-white/10 transition-colors text-center text-sm">
                         GITHUB
                     </a>

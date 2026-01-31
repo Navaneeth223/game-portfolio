@@ -1,6 +1,7 @@
 import { Environment, OrbitControls } from '@react-three/drei'
 import { World } from './World/World'
 import { Player } from './Player/Player'
+import { useGameStore } from '../../stores/useGameStore'
 
 import { useRef } from 'react'
 import { Group } from 'three'
@@ -23,9 +24,20 @@ export const Scene = () => {
     // Use OrbitControls. Set its target to player position every frame.
 
     const orbitRef = useRef<any>(null)
+    const { currentPhase } = useGameStore()
 
-    useFrame(() => {
-        if (playerRef.current && orbitRef.current) {
+    useFrame((state) => {
+        if (currentPhase === 'focused') {
+            // Focus on Project Billboard
+            const targetPos = { x: 20, y: 4, z: -20 }
+            const cameraPos = { x: 20, y: 4, z: -10 }
+
+            if (orbitRef.current) {
+                orbitRef.current.target.lerp(targetPos, 0.05)
+                state.camera.position.lerp(cameraPos, 0.05)
+                orbitRef.current.update()
+            }
+        } else if (playerRef.current && orbitRef.current) {
             // Smoothly move orbit target to player
             const { x, y, z } = playerRef.current.position
             orbitRef.current.target.lerp({ x, y: y + 2, z }, 0.1)
